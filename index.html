@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear equation in three variable solver</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('/bg.jpg');
+
+            background-size: cover;
+            color: wheat;
+        }
+        @media screen and (min-width: 375px) {
+                        .equations>input {
+                    width: 20px;
+                    
+                }
+                .container{
+                    height: 80vh;
+                    border: 1px solid red;
+                }
+    
+   }
+        .container {
+            width: 80vw;
+            height: 50vh;
+            border: 1px solid yellow;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            transition: all 1s ease-out;
+
+        }
+
+        .container:hover {
+            background-color: rgba(0, 0, 0, 0.671);
+            border-radius: 50px;
+            border: 2px solid yellow;
+        }
+
+        .heading {
+            margin: 10px;
+
+        }
+
+        .equations {
+            margin: 10px;
+        }
+
+        .equations>input {
+            width: 50px;
+            background: transparent;
+            outline: none;
+            border: none;
+            border-bottom: 3px solid wheat;
+            color: peachpuff;
+        }
+
+        #result {
+            padding: 5px;
+            width: 150px;
+            background: none;
+            border: 2px solid yellow;
+            color: wheat;
+            margin: 10px;
+            transition: all 1s ease-out;
+        }
+
+        #result:hover {
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .footer {
+            background: black;
+            width: 100vw;
+            height: 50px;
+            position: absolute;
+            color: wheat;
+            bottom: 0%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .76rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <div class="heading">
+            <h2>Linear equation in three variables solver</h2>
+        </div>
+        <div class='equations'>
+            <input type="number" name="" id="a1x"><label for="x">x+ </label>
+            <input type="number" name="" id="b1x"><label for="y">y+</label>
+            <input type="number" name="" id="c1x"><label for="z">z=</label>
+            <input type="number" name="" id="d1x">
+        </div>
+        <div class='equations'>
+            <input type="number" name="" id="a2x"><label for="x">x+ </label>
+            <input type="number" name="" id="b2x"><label for="y">y+</label>
+            <input type="number" name="" id="c2x"><label for="z">z=</label>
+            <input type="number" name="" id="d2x">
+        </div>
+        <div class='equations'>
+            <input type="number" name="" id="a3x"><label for="x">x+ </label>
+            <input type="number" name="" id="b3x"><label for="y">y+</label>
+            <input type="number" name="" id="c3x"><label for="z">z=</label>
+            <input type="number" name="" id="d3x">
+        </div>
+        <button type="submit" id='result' onclick="solve()">Generate Result</button>
+        <div id="answers" class="equations">
+
+        </div>
+
+    </div>
+    <div class="footer">
+        <div> Designed & Developed By : Syed Hassanul Haque</div>
+    </div>
+
+    <script>
+        a1x = document.getElementById('a1x');
+        b1x = document.getElementById('b1x');
+        c1x = document.getElementById('c1x');
+        d1x = document.getElementById('d1x');
+
+        a2x = document.getElementById('a2x');
+        b2x = document.getElementById('b2x');
+        c2x = document.getElementById('c2x');
+        d2x = document.getElementById('d2x');
+
+        a3x = document.getElementById('a3x');
+        b3x = document.getElementById('b3x');
+        c3x = document.getElementById('c3x');
+        d3x = document.getElementById('d3x');
+
+        var a0,b0,c0,d0,
+        a1,b1,c1,d1
+        ,a2,b2,c2,d2;
+        var x,y,z;
+
+        // console.log(b);
+        // First row
+        a1x.onchange = function () {
+            function changefunction() {
+                a0 = a1x.value;
+            }
+            changefunction();
+        }
+
+        b1x.onchange = function () {
+            function changefunction() {
+                b0 = b1x.value;
+            }
+            changefunction();
+        }
+
+        c1x.onchange = function () {
+            function changefunction() {
+                c0 = c1x.value;
+            }
+            changefunction();
+        }
+
+        d1x.onchange = function () {
+            function changefunction() {
+                d0 = d1x.value;
+            }
+            changefunction();
+        }
+
+
+        // Second row
+        a2x.onchange = function () {
+            function changefunction() {
+                a1 = a2x.value;
+            }
+            changefunction();
+        }
+
+        b2x.onchange = function () {
+            function changefunction() {
+                b1 = b2x.value;
+            }
+            changefunction();
+        }
+
+        c2x.onchange = function () {
+            function changefunction() {
+                c1 = c2x.value;
+            }
+            changefunction();
+        }
+
+        d2x.onchange = function () {
+            function changefunction() {
+                d1 = d2x.value;
+            }
+            changefunction();
+        }
+
+        // Third row
+        a3x.onchange = function () {
+            function changefunction() {
+                a2 = a3x.value;
+            }
+            changefunction();
+        }
+
+        b3x.onchange = function () {
+            function changefunction() {
+                b2 = b3x.value;
+            }
+            changefunction();
+        }
+
+        c3x.onchange = function () {
+            function changefunction() {
+                c2 = c3x.value;
+            }
+            changefunction();
+        }
+
+        d3x.onchange = function () {
+            function changefunction() {
+                d2 = d3x.value;
+            }
+            changefunction();
+        }
+
+
+        function solve() {
+            let det,detX,detY,detZ;
+                console.log('Welcome to JS')
+
+                                det = (a0 * ((b1 * c2) - (c1 * b2))
+
+                                    - b0 * ((a1 * c2) - (c1 * a2))
+
+                                    + c0 * ((a1 * b2) - (a2 * b1))
+
+                                );
+
+
+                                detX = (d0 * ((b1 * c2) - (c1 * b2))
+
+                                    - b0 * ((d1 * c2) - (c1 * d2))
+
+                                    + c0 * ((d1 * b2) - (d2 * b1))
+
+                                );
+
+
+                                detY = (a0 * ((d1 * c2) - (c1 * d2))
+
+                                    - d0 * ((a1 * c2) - (c1 * a2))
+
+                                    + c0 * ((a1 * d2) - (a2 * d1))
+
+                                );
+
+
+
+                                detZ = (a0 * ((b1 * d2) - (d1 * b2))
+
+                                    - b0 * ((a1 * d2) - (d1 * a2))
+
+                                    + d0 * ((a1 * b2) - (a2 * b1))
+
+                                );
+
+
+                                x = detX / det;
+                                y = detY / det;
+                                z = detZ / det;
+
+
+                                answers.innerHTML = "Result: <br> x =" + x + "<br>y =" + y + "<br>z =" + z;
+                                // console.log(a0);
+                                // console.log(b1);
+                                // console.log(c2);
+                                // console.log(x);
+                                // console.log(y);
+                                // console.log(z);
+                                // console.table(b);
+
+        }
+    </script>
+
+</body>
+
+</html>
