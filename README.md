@@ -1,1 +1,1 @@
-# linear-equation-in-three-varible
+# linear-equation-in-three-variables
